@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💖</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #ffccdc;
+            color: #d63384;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .heart {
+            font-size: 50px;
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .yes-btn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no-btn {
+            background-color: #ffccdc;
+            color: #ff4d6d;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="question">
+        <h1>Will you be my Valentine? 💕</h1>
+        <span class="heart">❤️</span>
+        <br>
+        <button class="btn yes-btn" onclick="showLove()">Yes 💘</button>
+        <button class="btn no-btn" onclick="moveNoButton()" id="no-btn">No 😢</button>
+    </div>
+    
+    <div class="container hidden" id="love">
+        <h1>Yay! You made me so happy! 🥰</h1>
+        <img src="valentineImage.jpg" alt="Happy GIF" width="300">
+        <br>
+        <button class="btn yes-btn" onclick="goBack()">Go Back 🔙</button>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById('question').classList.add('hidden');
+            document.getElementById('love').classList.remove('hidden');
+        }
+        
+        function goBack() {
+            document.getElementById('love').classList.add('hidden');
+            document.getElementById('question').classList.remove('hidden');
+        }
+        
+        function moveNoButton() {
+            var button = document.getElementById('no-btn');
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 100);
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
+
+
+
